@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: httpd-deployment
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
       app: httpd
@@ -19,10 +19,10 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            cpu: 15m
-            memory: 10Mi
+            cpu: 0.1m
+            memory: 1Mi
           limits:
-            cpu: 15m
+            cpu: 10m
             memory: 10Mi
 ---
 apiVersion: v1
@@ -30,6 +30,7 @@ kind: Service
 metadata:
   name: httpd-service
 spec:
+  externalTrafficPolicy: Local
   selector:
     app: httpd
   ports:
@@ -37,3 +38,15 @@ spec:
     port: 80
     targetPort: 80
   type: NodePort
+
+
+
+
+
+
+
+
+
+
+
+
