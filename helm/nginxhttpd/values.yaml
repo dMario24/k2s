@@ -1,0 +1,21 @@
+releaseName: my-release  # 기본 릴리스 이름
+
+httpd:
+  enabled: true
+  image:
+    repository: httpd
+    tag: latest
+  service:
+    type: ClusterIP
+    port: 80
+
+nginx:
+  enabled: true
+  image:
+    repository: nginx
+    tag: latest
+  service:
+    type: ClusterIP
+    port: 80
+  config:
+    redirect: "http://{{ .Release.Name }}-httpd-service:80"
