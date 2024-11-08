@@ -41,4 +41,10 @@ TEST SUITE: None
 $ helm history cnp
 REVISION        UPDATED                         STATUS          CHART           APP VERSION     DESCRIPTION
 1               Fri Nov  8 10:31:33 2024        deployed        ngpd-0.1.0      1.16.0          Install complete
+
+
+$ helm upgrade cnp .
+$ helm list
+$ helm rollback cpn 1
+$ helm delete cpn
 ```
